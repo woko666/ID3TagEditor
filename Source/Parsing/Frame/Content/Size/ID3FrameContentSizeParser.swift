@@ -26,7 +26,7 @@ class ID3FrameContentSizeParser: FrameContentSizeParser {
         let frameSizePosition = framePosition + id3FrameConfiguration.sizeOffsetFor(version: version)
         var frameSize: UInt32 = 0
         if mp3.length <= (frameSizePosition + 4) {
-            return Int.max/2
+            return UInt32(Int.max/2)
         }
         mp3.getBytes(&frameSize, range: NSMakeRange(frameSizePosition, 4))
         frameSize = frameSize.bigEndian & id3FrameConfiguration.sizeMaskFor(version: version)
