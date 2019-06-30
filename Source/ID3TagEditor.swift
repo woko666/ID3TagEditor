@@ -32,17 +32,27 @@ public class ID3TagEditor {
 
      - parameter path: path of the mp3 file to be parsed.
 
-     - throws: Could throw `InvalidFileFormat` if an mp3 file doesn't exists at the specified path.
-
      - returns: an ID3 tag or nil, if a tag doesn't exists in the file.
+     
+     - throws: Could throw `InvalidFileFormat` if an mp3 file doesn't exists at the specified path.
+     Could throw `CorruptedFile` if the file is corrupted.
      */
     public func read(from path: String) throws -> ID3Tag? {
         let mp3 = try mp3FileReader.readFrom(path: path)
-        return self.id3TagParser.parse(mp3: mp3)
+        return try self.id3TagParser.parse(mp3: mp3)
     }
     
-    public func readData(_ data:Data) throws -> ID3Tag? {
-        return self.id3TagParser.parse(mp3: data)
+    /**
+     Read the ID3 tag contained in the mp3 file passed as `Data`.
+     
+     - parameter mp3: mp3 file opened as Data.
+     
+     - returns: an ID3 tag or nil, if a tag doesn't exists in the file.
+     
+     - throws: Could throw `CorruptedFile` if the file is corrupted.
+     */
+    public func read(mp3: Data) throws -> ID3Tag? {
+        return try self.id3TagParser.parse(mp3: mp3)
     }
 
     /**
@@ -59,8 +69,25 @@ public class ID3TagEditor {
      */
     public func write(tag: ID3Tag, to path: String, andSaveTo newPath: String? = nil) throws {
         let mp3 = try mp3FileReader.readFrom(path: path)
-        let currentTag = self.id3TagParser.parse(mp3: mp3)
+        let currentTag = try self.id3TagParser.parse(mp3: mp3)
         let mp3WithId3Tag = try mp3WithID3TagBuilder.build(mp3: mp3, newId3Tag: tag, currentId3Tag: currentTag)
         try mp3FileWriter.write(mp3: mp3WithId3Tag, path: newPath ?? path)
+    }
+    
+    /**
+     Write the ID3 tag passed as parameter to the mp3 file passed as `Data`.
+     
+     - parameter tag: the ID3 tag to be written in the mp3.
+     - parameter mp3: the mp3 on which we want to write the new tag.
+     
+     - returns: a new `Data` object that contains the mp3 data with the new tag.
+     
+     - throws: Could throw `TagTooBig` (tag size > 256 MB) or `InvalidTagData` (no data set to be written in the
+     ID3 tag).
+     */
+    public func write(tag: ID3Tag, mp3: Data) throws -> Data {
+        let currentTag = try self.id3TagParser.parse(mp3: mp3)
+        let mp3WithId3Tag = try mp3WithID3TagBuilder.build(mp3: mp3, newId3Tag: tag, currentId3Tag: currentTag)
+        return mp3WithId3Tag
     }
 }

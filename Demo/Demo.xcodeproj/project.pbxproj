@@ -231,6 +231,11 @@
 		45541BCE205990990025A8BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45541BD0205990990025A8BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45541BDF205994AA0025A8BF /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
+		45751DAB2193CDB100627A34 /* Package.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
+		45751DAC2193CDB100627A34 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		45751DAD2193CDB100627A34 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		45751DB02193CDB100627A34 /* example-v3-additional-data.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "example-v3-additional-data.mp3"; sourceTree = "<group>"; };
+		45751DB12193CDB100627A34 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		458BED20209272E4003C2E14 /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
 		45AF185E204C226C00343B25 /* PathLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathLoader.swift; sourceTree = "<group>"; };
 		45EEC042205A66E900CEF5BF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -298,6 +303,7 @@
 				45F834352059078B0046C804 /* Demo watchOS */,
 				45F834442059078B0046C804 /* Demo watchOS Extension */,
 				45541BC6205990990025A8BF /* Demo tvOS */,
+				457517C82193CDAF00627A34 /* Demo Ubuntu */,
 				452832F02044D28E00458375 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -365,6 +371,34 @@
 				45541BD0205990990025A8BF /* Info.plist */,
 			);
 			path = "Demo tvOS";
+			sourceTree = "<group>";
+		};
+		457517C82193CDAF00627A34 /* Demo Ubuntu */ = {
+			isa = PBXGroup;
+			children = (
+				45751DAB2193CDB100627A34 /* Package.resolved */,
+				45751DAC2193CDB100627A34 /* .gitignore */,
+				45751DAD2193CDB100627A34 /* Package.swift */,
+				45751DAE2193CDB100627A34 /* Sources */,
+			);
+			path = "Demo Ubuntu";
+			sourceTree = "<group>";
+		};
+		45751DAE2193CDB100627A34 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				45751DAF2193CDB100627A34 /* Demo Ubuntu */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		45751DAF2193CDB100627A34 /* Demo Ubuntu */ = {
+			isa = PBXGroup;
+			children = (
+				45751DB02193CDB100627A34 /* example-v3-additional-data.mp3 */,
+				45751DB12193CDB100627A34 /* main.swift */,
+			);
+			path = "Demo Ubuntu";
 			sourceTree = "<group>";
 		};
 		45AF185B204C224600343B25 /* Demo common */ = {
@@ -509,14 +543,17 @@
 				TargetAttributes = {
 					452832EE2044D28E00458375 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					452833492044D41300458375 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					45541BC4205990990025A8BF = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 					45F834332059078A0046C804 = {
@@ -525,6 +562,7 @@
 					};
 					45F8343F2059078B0046C804 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -904,7 +942,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -921,7 +959,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = it.chicio.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -939,7 +977,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.Demo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -958,7 +996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.Demo-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -978,7 +1016,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.Demo-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.2;
 			};
@@ -998,7 +1036,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.chicio.Demo-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.2;
 				VALIDATE_PRODUCT = YES;
@@ -1018,7 +1056,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 4.2;
 			};
@@ -1037,7 +1075,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 4.2;
